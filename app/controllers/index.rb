@@ -10,6 +10,7 @@ get '/recipes/new' do
 end 
 
 
+
  get '/recipes/' do
   erb :recipes
  end
@@ -17,4 +18,9 @@ end
 get '/recipes/:recipe_id' do 
   @recipe = Recipe.where(id: params[:recipe_id]).first
   erb :recipe 
+end
+
+post '/recipes' do
+  recipe = Recipe.create(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions] )
+  redirect to "/recipes/#{recipe.id}" 
 end
