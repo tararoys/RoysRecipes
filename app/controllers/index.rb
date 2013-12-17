@@ -5,6 +5,11 @@ get '/' do
   erb :index
 end
 
+get '/recipes/new' do
+  erb :new_recipe
+end 
+
+
  get '/recipes/' do
   erb :recipes
  end
@@ -13,6 +18,3 @@ get '/recipes/:recipe_id' do
   @recipe = Recipe.where(id: params[:recipe_id]).first
   erb :recipe 
 end
-
-get '/recipes/new' do
-end 
