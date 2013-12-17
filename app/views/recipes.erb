@@ -1,0 +1,10 @@
+<div id = "daily_tea_list">
+  <ul>
+    <% Recipe.all.reverse.each do |recipe| %>
+    <div class="title">
+    <a href="/recipes/<%=recipe.id%>">
+      <%=recipe.title%></a></li>
+    </div>
+    <%end%>
+  </ul>
+</div>  
