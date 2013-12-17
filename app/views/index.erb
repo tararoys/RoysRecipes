@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Welcome to Roys Recipes!</h1>
-<% recipe = Recipe.new(title: "Egg Pancakes",
-  ingredients: "12 eggs", instructions: "Put them in a pan") %>
 
- <%= erb :_recipe, locals: { recipe: recipe } %>
+
+ <%= erb :_recipe, locals: { recipe: Recipe.first } %>
+
 </div>
