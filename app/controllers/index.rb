@@ -1,3 +1,6 @@
+use Rack::Auth::Basic, "Restricted Area" do |username, password|
+  username == ENV['USERNAME'] && password == ENV['PASSWORD']
+end
 
 #localhost:9696
 get '/' do
@@ -7,7 +10,7 @@ end
 
 get '/recipes/new' do
   erb :new_recipe
-end 
+end
 
 
 
@@ -15,12 +18,12 @@ end
   erb :recipes
  end
 
-get '/recipes/:recipe_id' do 
+get '/recipes/:recipe_id' do
   @recipe = Recipe.where(id: params[:recipe_id]).first
-  erb :recipe 
+  erb :recipe
 end
 
 post '/recipes' do
   recipe = Recipe.create(title: params[:title], ingredients: params[:ingredients], instructions: params[:instructions] )
-  redirect to "/recipes/#{recipe.id}" 
+  redirect to "/recipes/#{recipe.id}"
 end
